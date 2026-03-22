@@ -33,4 +33,4 @@
 #			-> current port 48045		
 
 
-#		you'll now be able to acces the ct web page through 172.16.195.5
+#		you'll now be able to acces the ct web page through 172.16.195.5:48045
