@@ -1,6 +1,6 @@
 # PMX_Scripts
 
-*mynatrules.sh quick presentation
+## mynatrules.sh quick presentation
 
 This script was made to link **Proxmox** CTs to the Internet and to translate ports from the host to machines using nftables
 
