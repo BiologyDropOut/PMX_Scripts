@@ -7,7 +7,7 @@ This script was made to link **Proxmox** CTs to the Internet and to translate po
 ## How to use it ?
 
 	 chmod +x mynatrules.sh  
-instructions are pretty clear when you user it. using it without any arguments will display a quick tutorial\     	
+instructions are pretty clear when you user it. using it without any arguments will display a quick tutorial  	
 To avoid having multiple bridges to set up  (the script *should* work fine with multiple bridges) you can englobe multiple networks in a big one  
 -> e.g: 192.168.0.1/16 englobes 192.168.X.X/24   
 meaning you only need one bridge for 500 CTs using my script   
