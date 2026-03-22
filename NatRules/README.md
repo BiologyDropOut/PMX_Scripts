@@ -4,8 +4,7 @@
 
 This script was made to link **Proxmox** CTs to the Internet and to translate ports from the host to machines using nftables
 
-
-*How to use it ?
+## How to use it ?
 
 	 chmod +x mynatrules.sh
 instructions are pretty clear when you user it. using it without any arguments will display a quick tutorial	
@@ -16,7 +15,7 @@ meaning you only need one bridge for 500 CTs using my script
 I advise using it on a 1-99 window starting at X.X.X.100 and wide cidr like /16 because of the following logic
 
 
-*The port translation is following this logic
+## The port translation is following this logic
 
 Let's say your proxmox host ip is 172.16.195.5
 Let's say you want to open port 80 on a CT that it's IP is 192.168.4.145
