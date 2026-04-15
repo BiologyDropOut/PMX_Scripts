@@ -2,7 +2,7 @@
 
 # Complete network management script for Proxmox CT
 # Supports unlimited internal bridges
-# Usage: ./mynatrules.sh <action> [options]
+# Usage: ./nft-complete-manager.sh <action> [options]
 
 EXTERNAL_INTERFACE="vmbr0"
 CONFIG_FILE="/etc/nft-manager.conf"
