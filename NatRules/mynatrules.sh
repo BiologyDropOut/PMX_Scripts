@@ -2,7 +2,7 @@
 
 # Complete network management script for Proxmox CT
 # Supports unlimited internal bridges
-# Usage: ./nft-complete-manager.sh <action> [options]
+# Usage: ./mynatrules.sh <action> [options]
 
 EXTERNAL_INTERFACE="vmbr0"
 CONFIG_FILE="/etc/nft-manager.conf"
@@ -309,22 +309,28 @@ function setup_base_tables() {
 # Format: <3rd byte> + <last 2 digits of port> + <last 2 digits of 4th byte>
 # ─────────────────────────────────────────────
 
+
+
 function calc_external_port() {
     local PORT=$1
     local CT_IP=$2
-
     IFS='.' read -r o1 o2 o3 o4 <<< "$CT_IP"
-
-    # 80 and 443 share the same service code: 80
-    [ "$PORT" = "443" ] && PORT=80
-
+    
+    # 80 -> service code 80, 443 -> service code 81
+    local SERVICE_CODE
+    if [ "$PORT" = "443" ]; then
+        SERVICE_CODE=81
+    else
+        SERVICE_CODE=$PORT
+    fi
+    
     local SERVICE_DIGITS
-    SERVICE_DIGITS=$(printf "%02d" $((PORT % 100)))
+    SERVICE_DIGITS=$(printf "%02d" $((SERVICE_CODE % 100)))
     local IP_DIGITS
     IP_DIGITS=$(printf "%02d" $((o4 % 100)))
-
     echo "${o3}${SERVICE_DIGITS}${IP_DIGITS}"
 }
+
 
 # ─────────────────────────────────────────────
 # CT port management
